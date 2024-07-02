@@ -53,7 +53,7 @@ function AddBlog() {
     if (formData.categories.includes(category)) {
       setValue(
         'categories',
-        formData.categories.filter((cat) => cat !== category)
+        formData.categories.filter((cat: string) => cat !== category)
       );
     } else {
       setValue('categories', [...formData.categories, category]);
