@@ -9,6 +9,7 @@ pipeline {
         }
         stage('docker') {
             steps {
+                sh "docker-compose down --remove"
                 sh "docker-compose up -d --build"
             }
         }
