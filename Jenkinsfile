@@ -12,5 +12,10 @@ pipeline {
                 sh "docker-compose up -d"
             }
         }
+        stage('End') {
+            steps {
+                echo "Pipeline is build successfully"
+            }
+        }
     }
 }
