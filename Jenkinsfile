@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        scannerHome = tool name: 'SonarQubeScanner'
+        scannerHome = tool name: 'sonar'
     }
 
     stages {
