@@ -7,6 +7,7 @@ services:
       - ./backend/.env.sample
     ports:
       - "5000:5000" 
+    image: visheshvishu/wanderlust_backend:latest
     depends_on: 
       - redis
       - mongodb  
@@ -19,7 +20,8 @@ services:
     depends_on:
       - backend
     ports:
-      - "5173:5173"  
+      - "5173:5173"
+    image: visheshvishu/wanderlust_frontend:latest
 
   mongodb:
     container_name: mongo
