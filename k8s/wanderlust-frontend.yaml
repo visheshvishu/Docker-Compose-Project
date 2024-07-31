@@ -1,0 +1,36 @@
+# frontend-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  namespace: wanderlust
+spec:
+  replicas: 1  # Adjust as needed
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      containers:
+        - name: frontend
+          image: visheshvishu/wanderlust_frontend:latest
+          ports:
+            - containerPort: 5173
+
+---
+
+# frontend-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: frontend
+  namespace: wanderlust
+spec:
+  selector:
+    app: frontend
+  ports:
+    - port: 5173
+
