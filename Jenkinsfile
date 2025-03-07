@@ -1,8 +1,5 @@
 pipeline {
     agent any
-    environment {
-        scannerHome = tool name: 'sonar'
-    }
 
     stages {
         stage('Clone Repository') {
@@ -10,16 +7,7 @@ pipeline {
                 git url: "https://github.com/visheshvishu/demo-docker.git", branch: "main"
             }
         }
-        // stage('SonarQube analysis') {
-        //     steps {
-        //         withSonarQubeEnv('sonar') {
-        //             sh "${scannerHome}/bin/sonar-scanner \
-        //                 -Dsonar.projectName=wanderlust \
-        //                 -Dsonar.projectKey=wanderlust \
-        //                 -Dsonar.host.url=http://172.27.190.167:9000"
-        //         }
-        //     }
-        // }
+      
         
         stage('Build and Deploy with Docker') {
             steps {
